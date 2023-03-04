@@ -1,19 +1,14 @@
 package study;
 
-public class Calculator {
-    int plus(int sum, int input) {
-        return sum + input;
+public abstract class Calculator {
+    int sum;
+
+    public Calculator(int sum) {
+        this.sum = sum;
     }
 
-    int minus(int sum, int input) {
-        return sum - input;
-    }
-
-    int multiple(int sum, int input) {
-        return sum * input;
-    }
-
-    int divide(int sum, int input) {
-        return sum / input;
-    }
+    abstract int plus(int sum, int input);
+    abstract int minus(int sum, int input);
+    abstract int multi(int sum, int input);
+    abstract int divide(int sum, int input);
 }
