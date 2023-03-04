@@ -8,7 +8,10 @@ public abstract class Calculator {
     }
 
     abstract int plus(int sum, int input);
+
     abstract int minus(int sum, int input);
+
     abstract int multi(int sum, int input);
+
     abstract int divide(int sum, int input);
 }

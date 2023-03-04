@@ -54,14 +54,14 @@ public class StringCalculator extends Calculator {
     }
 
     private int calculateByCase(int sum, String poll, MathExpression mathExpression) {
-        if(mathExpression.equals(MathExpression.PLUS)) {
-            sum+=Integer.parseInt(poll);
+        if (mathExpression.equals(MathExpression.PLUS)) {
+            sum += Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.MINUS)) {
-            sum-=Integer.parseInt(poll);
+            sum -= Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.MULTI)) {
-            sum*=Integer.parseInt(poll);
+            sum *= Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.DIVIDE)) {
-            sum/=Integer.parseInt(poll);
+            sum /= Integer.parseInt(poll);
         }
         return sum;
     }
