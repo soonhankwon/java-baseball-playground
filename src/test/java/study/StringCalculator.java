@@ -3,7 +3,7 @@ package study;
 import java.util.Queue;
 
 public class StringCalculator extends Calculator {
-    private Queue<String> queue;
+    Queue<String> InputDataQueue;
 
     @Override
     public int plus(int sum, int input) {
@@ -25,19 +25,20 @@ public class StringCalculator extends Calculator {
         return sum + input;
     }
 
-    public StringCalculator(int sum, Queue<String> queue) {
+    public StringCalculator(int sum, Queue<String> InputDataQueue) {
         super(sum);
-        this.queue = queue;
+        this.InputDataQueue = InputDataQueue;
     }
 
-    public int calculateSum(Queue<String> queue) {
-        while (!queue.isEmpty()) {
-            MathExpression mathExpression = validateExpression(queue.poll());
+    public int calculateSum(Queue<String> InputDataQueue) {
+        while (!InputDataQueue.isEmpty()) {
+            MathExpression mathExpression = validateExpression(InputDataQueue.poll());
             assert mathExpression != null;
-            sum = calculateByCase(sum, queue.poll(), mathExpression);
+            sum = calculateByCase(sum, InputDataQueue.poll(), mathExpression);
         }
         return sum;
     }
+
     private MathExpression validateExpression(String expression) {
         switch (expression) {
             case "+":
@@ -51,6 +52,7 @@ public class StringCalculator extends Calculator {
         }
         return null;
     }
+
     private int calculateByCase(int sum, String poll, MathExpression mathExpression) {
         if(mathExpression.equals(MathExpression.PLUS)) {
             sum+=Integer.parseInt(poll);
