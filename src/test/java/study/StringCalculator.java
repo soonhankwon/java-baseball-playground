@@ -39,7 +39,7 @@ public class StringCalculator extends Calculator {
         return sum;
     }
 
-    private MathExpression validateExpression(String expression) {
+    private MathExpression validateExpression(String expression) throws IllegalArgumentException {
         switch (expression) {
             case "+":
                 return MathExpression.PLUS;
@@ -50,19 +50,19 @@ public class StringCalculator extends Calculator {
             case "/":
                 return MathExpression.DIVIDE;
         }
-        return null;
+        throw new IllegalArgumentException();
     }
 
-    private int calculateByCase(int sum, String poll, MathExpression mathExpression) {
+    private int calculateByCase(int sum, String poll, MathExpression mathExpression) throws IllegalArgumentException {
         if (mathExpression.equals(MathExpression.PLUS)) {
-            sum += Integer.parseInt(poll);
+            return sum += Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.MINUS)) {
-            sum -= Integer.parseInt(poll);
+            return sum -= Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.MULTI)) {
-            sum *= Integer.parseInt(poll);
+            return sum *= Integer.parseInt(poll);
         } else if (mathExpression.equals(MathExpression.DIVIDE)) {
-            sum /= Integer.parseInt(poll);
+            return sum /= Integer.parseInt(poll);
         }
-        return sum;
+        throw new IllegalArgumentException();
     }
 }
